@@ -18,11 +18,13 @@ public class VyTrackUtils {
     }
 
     public static void goToVehiclesPage(){
+
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(),30);
         wait.until(ExpectedConditions.titleContains("Dashboard"));
+
         DashboardPage dashboardPage = new DashboardPage();
+
         dashboardPage.fleetModule.click();
         dashboardPage.vehiclesOption.click();
-
     }
 }
