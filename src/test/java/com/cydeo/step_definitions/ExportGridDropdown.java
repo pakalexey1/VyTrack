@@ -1,19 +1,18 @@
 package com.cydeo.step_definitions;
 
 import com.cydeo.pages.VehiclesPage;
-import com.cydeo.utilities.ConfigurationReader;
 import com.cydeo.utilities.Driver;
 import com.cydeo.utilities.VyTrackUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ExportGridDropdown {
+
+    WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
 
     @Given("user is on the vehicle page")
     public void user_is_on_the_vehicle_page() {
@@ -26,10 +25,13 @@ public class ExportGridDropdown {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(),30);
         wait.until(ExpectedConditions.elementToBeClickable(vehiclesPage.exportGridDropdownButton));
         vehiclesPage.exportGridDropdownButton.click();
+        wait.until(ExpectedConditions.visibilityOf(vehiclesPage.clickedGridDropdownButton));
     }
     @Then("user should see two options: CSV and XLSX")
     public void user_should_see_two_options_csv_and_xlsx() {
         VehiclesPage vehiclesPage = new VehiclesPage();
+
+        wait.until(ExpectedConditions.visibilityOf(vehiclesPage.csvButton));
 
         Assert.assertTrue(vehiclesPage.csvButton.isDisplayed());
         Assert.assertTrue(vehiclesPage.xlsxButton.isDisplayed());
