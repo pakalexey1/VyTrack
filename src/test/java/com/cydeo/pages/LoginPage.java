@@ -20,5 +20,22 @@ public class LoginPage {
     @FindBy (id = "_submit")
     public WebElement submitButton;
 
+    @FindBy(css = "a[class='no-hash']")
+    public WebElement logoutButton;
 
+    @FindBy(css = "li[id='user-menu']>a[class='dropdown-toggle']")
+    public WebElement userMenuButton;
+
+
+    public void loginWithCredentials(String username, String password){
+
+        this.usernameBox.sendKeys(ConfigurationReader.getProperty(username));
+        this.passwordBox.sendKeys(ConfigurationReader.getProperty(password));
+        this.submitButton.click();
+    }
+
+    public void logout(){
+        this.userMenuButton.click();
+        this.logoutButton.click();
+    }
 }
