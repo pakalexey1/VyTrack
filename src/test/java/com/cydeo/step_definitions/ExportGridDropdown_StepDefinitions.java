@@ -34,6 +34,7 @@ public class ExportGridDropdown_StepDefinitions {
     @Then("user should see two options: CSV and XLSX")
     public void user_should_see_two_options_csv_and_xlsx() {
         VehiclesPage vehiclesPage = new VehiclesPage();
+
         Assert.assertTrue(vehiclesPage.csvButton.isDisplayed());
         Assert.assertTrue(vehiclesPage.xlsxButton.isDisplayed());
         vehiclesPage.logout();
