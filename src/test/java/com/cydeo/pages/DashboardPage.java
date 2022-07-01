@@ -10,7 +10,7 @@ public class DashboardPage {
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
-    @FindBy(xpath = "(//span[@class='title title-level-1'])[1]")
+    @FindBy(xpath = "//i[@class='fa-asterisk menu-icon']/parent::span[@class='title title-level-1']")
     public WebElement fleetModule;
 
     @FindBy(xpath = "//span[.='Vehicles']")
