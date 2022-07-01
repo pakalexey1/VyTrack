@@ -5,11 +5,15 @@ import com.cydeo.utilities.Driver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LoginPage {
     public LoginPage(){
         PageFactory.initElements(Driver.getDriver(),this);
     }
+
+    WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
 
     @FindBy (id = "prependedInput")
     public WebElement usernameBox;
@@ -35,7 +39,10 @@ public class LoginPage {
     }
 
     public void logout(){
+        wait.until(ExpectedConditions.elementToBeClickable(this.userMenuButton));
         this.userMenuButton.click();
+
+        wait.until(ExpectedConditions.visibilityOf(this.logoutButton));
         this.logoutButton.click();
     }
 }
