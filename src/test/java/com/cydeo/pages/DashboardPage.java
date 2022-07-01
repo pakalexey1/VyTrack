@@ -15,4 +15,5 @@ public class DashboardPage {
 
     @FindBy(xpath = "//span[.='Vehicles']")
     public WebElement vehiclesOption;
+
 }
