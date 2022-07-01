@@ -1,19 +1,16 @@
 package com.cydeo.step_definitions;
 
 import com.cydeo.pages.VehiclesPage;
-import com.cydeo.utilities.ConfigurationReader;
 import com.cydeo.utilities.Driver;
 import com.cydeo.utilities.VyTrackUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class ExportGridDropdown {
+public class ExportGridDropdown_StepDefinitions {
 
     @Given("user is on the vehicle page")
     public void user_is_on_the_vehicle_page() {
