@@ -28,7 +28,7 @@ public class VehiclesPage {
     @FindBy(css = "li[class='last']>a[class='no-hash']")
     public WebElement logoutButton;
     public void logout(){
-        wait.until(ExpectedConditions.elementToBeClickable(this.userMenuButton));
+        wait.until(ExpectedConditions.visibilityOf(this.userMenuButton));
         this.userMenuButton.click();
 
         wait.until(ExpectedConditions.visibilityOf(this.logoutButton));
