@@ -9,8 +9,10 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features="src/test/resources/features",
         glue="com/cydeo/step_definitions",
+
         dryRun=false,
         tags = "@StoreManager"
 )
+
 public class CukesRunner {
 }
