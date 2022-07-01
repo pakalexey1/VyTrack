@@ -16,6 +16,6 @@ public class VehiclesPage {
     @FindBy(css = "a[title='CSV']")
     public WebElement csvButton;
 
-    @FindBy(css="XSLX")
+    @FindBy(css="a[title='XLSX']")
     public WebElement xlsxButton;
 }
