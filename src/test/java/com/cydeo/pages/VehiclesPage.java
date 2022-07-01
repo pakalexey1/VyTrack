@@ -20,13 +20,23 @@ public class VehiclesPage {
     @FindBy(css = "a[title='CSV']")
     public WebElement csvButton;
 
-    @FindBy(css="a[title='XLSX']")
+    @FindBy(css = "a[title='XLSX']")
     public WebElement xlsxButton;
     @FindBy(css = "li[id='user-menu']>a[class='dropdown-toggle']")
     public WebElement userMenuButton;
 
     @FindBy(css = "li[class='last']>a[class='no-hash']")
     public WebElement logoutButton;
+
+    @FindBy (className = "oro-subtitle")
+    public WebElement allCarsDropDownButton;
+
+    @FindBy (css = "a[data-value=\"__all__\"]")
+    public WebElement allCarsOption;
+
+    @FindBy (css = "a[title=\"Refresh\"]")
+    public WebElement refreshButton;
+
     public void logout(){
         wait.until(ExpectedConditions.visibilityOf(this.userMenuButton));
         this.userMenuButton.click();
