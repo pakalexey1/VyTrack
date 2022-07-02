@@ -11,7 +11,7 @@ import org.junit.runner.RunWith;
         glue="com/cydeo/step_definitions",
 
         dryRun=false,
-        tags = "@StoreManager"
+        tags = "@RefreshClick"
 )
 
 public class CukesRunner {
