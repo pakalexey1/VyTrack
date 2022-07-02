@@ -2,6 +2,7 @@ package com.cydeo.pages;
 
 import com.cydeo.utilities.ConfigurationReader;
 import com.cydeo.utilities.Driver;
+import com.cydeo.utilities.VyTrackUtils;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -13,7 +14,8 @@ public class LoginPage {
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
-    WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
+    WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 15);
+    DashboardPage dashboardPage = new DashboardPage();
 
     @FindBy (id = "prependedInput")
     public WebElement usernameBox;
@@ -39,7 +41,7 @@ public class LoginPage {
     }
 
     public void logout(){
-        wait.until(ExpectedConditions.elementToBeClickable(this.userMenuButton));
+        wait.until(ExpectedConditions.visibilityOf(this.userMenuButton));
         this.userMenuButton.click();
 
         wait.until(ExpectedConditions.visibilityOf(this.logoutButton));

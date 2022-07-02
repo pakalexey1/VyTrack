@@ -9,18 +9,16 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ExportGridDropdown_StepDefinitions {
 
     WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 30);
+    DashboardPage dashboardPage = new DashboardPage();
 
     @Given("Track_Driver_first is on the vehicle page")
-    public void track_driver_firstIsOnTheVehiclePage() throws InterruptedException {
+    public void track_driver_firstIsOnTheVehiclePage() {
         VyTrackUtils.login("truck_driver.username1", "password");
-        DashboardPage dashboardPage = new DashboardPage();
-        wait.until(ExpectedConditions.elementToBeClickable(dashboardPage.vehiclesOption));
         VyTrackUtils.goToVehiclesPage();
     }
 
