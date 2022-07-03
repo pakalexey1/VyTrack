@@ -31,6 +31,7 @@ public class VyTrackUtils {
 
         actions.moveToElement(dashboardPage.fleetModule).pause(1000).perform();
 
+
         dashboardPage.fleetModule.click();
         dashboardPage.vehiclesOption.click();
     }
