@@ -4,7 +4,7 @@ Feature: Click Export Grid dropdown
  Accounts are: Truck Drivers, Store Manager, Sales Manager
   @1TruckDriver
   Scenario Outline: Truck driver can click on Export Grid dropdown
-   # Given user is on the vehicle page
+
     Given user "<truck_driver.username>" "<password>" is on the vehicle page
     When user clicks on Export Grid dropdown button
     Then user should see two options: CSV and XLSX
@@ -15,7 +15,7 @@ Feature: Click Export Grid dropdown
       |truck_driver.username3|password|
   @2StoreManager
   Scenario Outline: Store Manager can click on Export Grid dropdown
-   # Given user is on the vehicle page
+
     Given user "<store_manager.username>" "<password>" is on the vehicle page
     When user clicks on Export Grid dropdown button
     Then user should see two options: CSV and XLSX
@@ -26,7 +26,7 @@ Feature: Click Export Grid dropdown
       |store_manager.username3|password|
   @3SalesManager
   Scenario Outline: Sales Manager can click on Export Grid dropdown
-   # Given user is on the vehicle page
+
     Given user "<sales_manager.username>" "<password>" is on the vehicle page
     When user clicks on Export Grid dropdown button
     Then user should see two options: CSV and XLSX

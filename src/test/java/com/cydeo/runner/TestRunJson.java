@@ -11,6 +11,4 @@ import org.junit.runner.RunWith;
         dryRun = false,
         tags="@Test"
 )
-public class TestRunJson {
-
-}
+public class TestRunJson { }

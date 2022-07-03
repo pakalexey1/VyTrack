@@ -41,21 +41,6 @@ public class ClickRefreshButton_3 {
             Assert.assertFalse("Timeout waiting for Page Load", true);}
         VyTrackUtils.vyTrack_logout(Driver.getDriver());}}
 
-/*
 
-}
-@When("user clicks on the Refresh button")
-public void user_clicks_on_the_refresh_button() {
-    // Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
-}
-@Then("user see page is refreshed")
-public void user_see_page_is_refreshed() {
-    // Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
-}
-
-
- */
 
 

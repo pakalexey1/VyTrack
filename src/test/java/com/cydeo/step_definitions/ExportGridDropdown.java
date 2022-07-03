@@ -31,16 +31,7 @@ public void user_is_on_the_vehicle_page(String arg1, String arg2) {
     @And("close Chrome browser page")
     public void closeChromeBrowserPage() {
     Driver.closeDriver();
-    }
-
-
-
-
-
-
-
-
-    }
+    }}
 
 
 

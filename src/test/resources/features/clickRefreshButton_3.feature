@@ -1,6 +1,4 @@
-#1. Verify that Truck Driver is able to click "Refresh" button
-#2. Verify that Sales Manager is able to click "Refresh" button
-#3. Verify that Store Manager is able to click "Refresh" button
+
 @Test3
 Feature: Refresh button is clickable and refreshes the page
   User Story: As a user when I am on Vytrack => Fleet => Vehicles, I should be able to see Export Grid
