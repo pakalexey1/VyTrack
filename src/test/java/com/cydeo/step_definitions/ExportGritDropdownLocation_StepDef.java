@@ -9,22 +9,27 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ExportGritDropdownLocation_StepDef {
 
     VehiclesPage vehiclesPage = new VehiclesPage();
     Actions actions;
+    WebDriverWait wait = new WebDriverWait(Driver.getDriver(),30);
 
     @Given("truck_driver_one is on the All cars page")
-    public void truck_driver_one_is_on_the_all_cars_page() {
+    public void truck_driver_one_is_on_the_all_cars_page()  {
         VyTrackUtils.login("truck_driver.username1","password");
         VyTrackUtils.goToVehiclesPage();
+
 
     }
     @When("user moves to Export Grid Dropdown button")
     public void user_moves_to_export_grid_dropdown_button() {
+        wait.until(ExpectedConditions.elementToBeClickable(vehiclesPage.exportGridDropdownButton));
         actions = new Actions(Driver.getDriver());
-        actions.moveToElement(vehiclesPage.exportGridDropdownButton).perform();
+        actions.moveToElement(vehiclesPage.exportGridDropdownButton).pause(3000).perform();
     }
     @Then("user sees the Export Grid Dropdown button on the left side of the page")
     public void user_sees_the_export_grid_dropdown_button_on_the_left_side_of_the_page() {
