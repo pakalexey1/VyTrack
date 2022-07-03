@@ -37,6 +37,9 @@ public class VehiclesPage {
     @FindBy (css = "a[title=\"Refresh\"]")
     public WebElement refreshButton;
 
+    @FindBy(xpath = "//a[@title='Reset']")
+    public WebElement resetButton;
+
     public void logout(){
         wait.until(ExpectedConditions.visibilityOf(this.userMenuButton));
         this.userMenuButton.click();
