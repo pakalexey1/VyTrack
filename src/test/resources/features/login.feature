@@ -1,3 +1,4 @@
+@Login
 Feature: VyTrack app login feature
 
 User Story: As a user. I should be able to login with correct credentials to different accounts
@@ -5,50 +6,41 @@ and dashboard should be displayed.
 
 Accounts are: truck_driver, store_manager, sales_manager
 
-  Scenario: Login as track_driver_1
-    Given user is on the VyTrack login page
-    When user enters track_driver_first username and password
-    Then user should see dashboard
+  @TruckDriver
+  Scenario Outline: As a TruckDriver I should be able to login with correct credentials
 
-  Scenario: Login as track_driver_2
     Given user is on the VyTrack login page
-    When user enters track_driver_second username and password
+    When user enters "<truck_driver.username>" and "<password>"
     Then user should see dashboard
+    Examples:
+      | truck_driver.username  | password |
+      | truck_driver.username1 | password |
+      | truck_driver.username2 | password |
+      | truck_driver.username3 | password |
 
-  Scenario: Login as track_driver_3
-    Given user is on the VyTrack login page
-    When user enters track_driver_third username and password
-    Then user should see dashboard
+  @StoreManager
+  Scenario Outline: As a StoreManager I should be able to login with correct credentials
 
-  Scenario: Login as store_manager_1
     Given user is on the VyTrack login page
-    When user enters store_manager_first username and password
+    When user enters "<store_manager.username>" and "<password>"
     Then user should see dashboard
+    Examples:
+      | store_manager.username  | password |
+      | store_manager.username1 | password |
+      | store_manager.username2 | password |
+      | store_manager.username3 | password |
 
-  Scenario: Login as store_manager_2
-    Given user is on the VyTrack login page
-    When user enters store_manager_second username and password
-    Then user should see dashboard
+  @SalesManager
+  Scenario Outline: As a SalesManager I should be able to login with correct credentials
 
-  Scenario: Login as store_manager_3
     Given user is on the VyTrack login page
-    When user enters store_manager_third username and password
+    When user enters "<sales_manager.username>" and "<password>"
     Then user should see dashboard
-
-  Scenario: Login as sales_manager_1
-    Given user is on the VyTrack login page
-    When user enters sales_manager_first username and password
-    Then user should see dashboard
-
-  Scenario: Login as sales_manager_2
-    Given user is on the VyTrack login page
-    When user enters sales_manager_second username and password
-    Then user should see dashboard
-
-  Scenario: Login as sales_manager_3
-    Given user is on the VyTrack login page
-    When user enters sales_manager_third username and password
-    Then user should see dashboard
+    Examples:
+      | sales_manager.username  | password |
+      | sales_manager.username1 | password |
+      | sales_manager.username2 | password |
+      | sales_manager.username3 | password |
 
 
 
