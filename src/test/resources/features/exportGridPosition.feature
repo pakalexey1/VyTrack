@@ -4,50 +4,40 @@ Feature:  Export Grid dropdown is on the left side of the page
   Accounts are: Truck Drivers, Store Manager, Sales Manager
 
 
-  Scenario: Truck Driver One can see the Export Grid dropdown on the left side of All Cars page
-    Given truck_driver_one is on the All cars page
+  Scenario Outline: Truck Driver can see the Export Grid dropdown on the left side of All Cars page
+    Given user "<truck_driver_username>" "<password>" is on the All cars page
     When user moves to Export Grid Dropdown button
     Then user sees the Export Grid Dropdown button on the left side of the page
+    Examples:
+      | truck_driver_username  | password |
+      | truck_driver_username1 | password |
+      | truck_driver_username2 | password |
+      | truck_driver_username3 | password |
 
-  Scenario: Truck Driver Two can see the Export Grid dropdown on the left side of All Cars page
-    Given truck_driver_two is on the All cars page
-    When user moves to Export Grid Dropdown button
-    Then user sees the Export Grid Dropdown button on the left side of the page
 
-  Scenario: Truck Driver Three can see the Export Grid dropdown on the left side of All Cars page
-    Given truck_driver_three is on the All cars page
+  Scenario Outline: Store manager can see the Export Grid dropdown on the left side of All Cars page
+    Given user "<store_manager_username>" "<password>" is on the All cars page
     When user moves to Export Grid Dropdown button
     Then user sees the Export Grid Dropdown button on the left side of the page
+    Examples:
+      | store_manager_username  | password |
+      | store_manager_username1 | password |
+      | store_manager_username2 | password |
+      | store_manager_username3 | password |
 
-  Scenario: Store manager One can see the Export Grid dropdown on the left side of All Cars page
-    Given store_manager_one is on the All cars page
-    When user moves to Export Grid Dropdown button
-    Then user sees the Export Grid Dropdown button on the left side of the page
 
-  Scenario: Store manager Two can see the Export Grid dropdown on the left side of All Cars page
-    Given store_manager_two is on the All cars page
+  Scenario Outline: Sales manager can see the Export Grid dropdown on the left side of All Cars page
+    Given user "<sales_manager_username>" "<password>" is on the All cars page
     When user moves to Export Grid Dropdown button
     Then user sees the Export Grid Dropdown button on the left side of the page
+    Examples:
+      | sales_manager_username  | password |
+      | sales_manager_username1 | password |
+      | sales_manager_username2 | password |
+      | sales_manager_username3 | password |
 
-  Scenario: Store manager Three can see the Export Grid dropdown on the left side of All Cars page
-    Given store_manager_three is on the All cars page
-    When user moves to Export Grid Dropdown button
-    Then user sees the Export Grid Dropdown button on the left side of the page
 
-  Scenario: Sales manager One can see the Export Grid dropdown on the left side of All Cars page
-    Given sales_manager_one is on the All cars page
-    When user moves to Export Grid Dropdown button
-    Then user sees the Export Grid Dropdown button on the left side of the page
 
-  Scenario: Sales manager Two can see the Export Grid dropdown on the left side of All Cars page
-    Given sales_manager_two is on the All cars page
-    When user moves to Export Grid Dropdown button
-    Then user sees the Export Grid Dropdown button on the left side of the page
-
-  Scenario: Sales manager Three can see the Export Grid dropdown on the left side of All Cars page
-    Given sales_manager_three is on the All cars page
-    When user moves to Export Grid Dropdown button
-    Then user sees the Export Grid Dropdown button on the left side of the page
 
 
 

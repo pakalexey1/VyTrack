@@ -18,11 +18,10 @@ public class ExportGritDropdownLocation_StepDef {
     Actions actions;
     WebDriverWait wait = new WebDriverWait(Driver.getDriver(),30);
 
-    @Given("truck_driver_one is on the All cars page")
-    public void truck_driver_one_is_on_the_all_cars_page()  {
-        VyTrackUtils.login("truck_driver.username1","password");
+    @Given("user {string} {string} is on the All cars page")
+    public void userIsOnTheAllCarsPage(String username, String password) {
+        VyTrackUtils.login(username, password);
         VyTrackUtils.goToVehiclesPage();
-
 
     }
     @When("user moves to Export Grid Dropdown button")
@@ -43,63 +42,9 @@ public class ExportGritDropdownLocation_StepDef {
 
         Assert.assertTrue("Test failed",((xPos+width) <= winWidth/2) && (yPos + height) <= winHeight/2);
 
-
-
-    }
-
-    @Given("truck_driver_two is on the All cars page")
-    public void truck_driver_twoIsOnTheAllCarsPage() {
-        VyTrackUtils.login("truck_driver.username2","password");
-        VyTrackUtils.goToVehiclesPage();
+        vehiclesPage.logout();
 
     }
 
-    @Given("truck_driver_three is on the All cars page")
-    public void truck_driver_threeIsOnTheAllCarsPage() {
-        VyTrackUtils.login("truck_driver.username3","password");
-        VyTrackUtils.goToVehiclesPage();
 
-    }
-
-    @Given("store_manager_one is on the All cars page")
-    public void store_manager_oneIsOnTheAllCarsPage() {
-        VyTrackUtils.login("store_manager.username1","password");
-        VyTrackUtils.goToVehiclesPage();
-
-    }
-
-    @Given("store_manager_two is on the All cars page")
-    public void store_manager_twoIsOnTheAllCarsPage() {
-        VyTrackUtils.login("store_manager.username2","password");
-        VyTrackUtils.goToVehiclesPage();
-
-    }
-
-    @Given("store_manager_three is on the All cars page")
-    public void store_manager_threeIsOnTheAllCarsPage() {
-        VyTrackUtils.login("store_manager.username3","password");
-        VyTrackUtils.goToVehiclesPage();
-
-    }
-
-    @Given("sales_manager_one is on the All cars page")
-    public void sales_manager_oneIsOnTheAllCarsPage() {
-        VyTrackUtils.login("sales_manager.username1","password");
-        VyTrackUtils.goToVehiclesPage();
-
-    }
-
-    @Given("sales_manager_two is on the All cars page")
-    public void sales_manager_twoIsOnTheAllCarsPage() {
-        VyTrackUtils.login("sales_manager.username2","password");
-        VyTrackUtils.goToVehiclesPage();
-
-    }
-
-    @Given("sales_manager_three is on the All cars page")
-    public void sales_manager_threeIsOnTheAllCarsPage() {
-        VyTrackUtils.login("sales_manager.username3","password");
-        VyTrackUtils.goToVehiclesPage();
-
-    }
 }
