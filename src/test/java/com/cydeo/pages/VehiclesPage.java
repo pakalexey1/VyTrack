@@ -27,7 +27,8 @@ public class VehiclesPage {
     @FindBy(css="a[title='Refresh']")
     public WebElement refresh_button;
     @FindBy(css="a[title='Reset']")
-    public WebElement reset_button;}
+    public WebElement reset_button;
+//added to VehiclesPage
     @FindBy(css = "li[id='user-menu']>a[class='dropdown-toggle']")
     public WebElement userMenuButton;
 
