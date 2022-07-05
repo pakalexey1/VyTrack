@@ -2,7 +2,6 @@ package com.cydeo.step_definitions;
 import com.cydeo.pages.VehiclesPage;
 import com.cydeo.utilities.Driver;
 import com.cydeo.utilities.VyTrackUtils;
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -14,8 +13,6 @@ public class ExportGridDropdown {
 public void user_is_on_the_vehicle_page(String arg1, String arg2) {
     VyTrackUtils.login(arg1, arg2);
     VyTrackUtils.goToVehiclesPage();}
-
-
         @When("^user clicks on Export Grid dropdown button$")
     public void user_clicks_on_export_grid_dropdown_button () {
         VehiclesPage vehiclesPage = new VehiclesPage();
@@ -27,11 +24,7 @@ public void user_is_on_the_vehicle_page(String arg1, String arg2) {
         VehiclesPage vehiclesPage = new VehiclesPage();
         Assert.assertTrue(vehiclesPage.csvButton.isDisplayed());
         Assert.assertTrue(vehiclesPage.xlsxButton.isDisplayed());
-        VyTrackUtils.vyTrack_logout(Driver.getDriver());}
-    @And("close Chrome browser page")
-    public void closeChromeBrowserPage() {
-    Driver.closeDriver();
-    }}
+        VyTrackUtils.vyTrack_logout();}}
 
-
+//solution for feature 1
 
