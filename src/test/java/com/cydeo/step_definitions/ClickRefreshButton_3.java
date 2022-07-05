@@ -21,7 +21,6 @@ public class ClickRefreshButton_3 {
         VehiclesPage vehiclesPage = new VehiclesPage();
         Assert.assertTrue(vehiclesPage.reset_button.isDisplayed());
         Assert.assertTrue(vehiclesPage.reset_button.isEnabled());}
-
     @Then("^user see page is refreshed$")
     public void user_see_page_is_refreshed() {
         VehiclesPage vehiclesPage = new VehiclesPage();
@@ -39,8 +38,8 @@ public class ClickRefreshButton_3 {
         try {wait.until(expectation);
         } catch (Throwable error) {
             Assert.assertFalse("Timeout waiting for Page Load", true);}
-        VyTrackUtils.vyTrack_logout(Driver.getDriver());}}
-
+        VyTrackUtils.vyTrack_logout();}}
+//solution for feature 3
 
 
 
