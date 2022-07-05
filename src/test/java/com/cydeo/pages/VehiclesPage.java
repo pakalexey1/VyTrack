@@ -54,4 +54,9 @@ public class VehiclesPage {
         wait.until(ExpectedConditions.visibilityOf(this.logoutButton));
         this.logoutButton.click();
     }
+    @FindBy(css = "div[class='column-manager dropdown']")
+    public WebElement gridSettingsButton;
+
+    @FindBy(css = "div[class='column-manager dropdown open']")
+    public WebElement gridSettingsDropdown;
 }
