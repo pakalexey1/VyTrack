@@ -39,7 +39,7 @@ public class BrowserUtils {
         return elements.stream().map(x -> x.getText()).collect(Collectors.toList());
     }
 }
-//
+
 /*
 TC : Create utility method
 1. Create a new class called BrowserUtils
