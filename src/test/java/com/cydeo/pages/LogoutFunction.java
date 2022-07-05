@@ -11,3 +11,4 @@ public class LogoutFunction {
     public WebElement logout_dropdown;
     @FindBy(xpath = "//a[.='Logout']")
     public WebElement logout_button;}
+// added logout
