@@ -20,8 +20,14 @@ public class VehiclesPage {
     @FindBy(css = "a[title='CSV']")
     public WebElement csvButton;
 
-    @FindBy(css = "a[title='XLSX']")
+    @FindBy(css="a[title='XLSX']")
     public WebElement xlsxButton;
+    @FindBy(css="a[title='Grid Settings']")
+    public WebElement grid_settings;
+    @FindBy(css="a[title='Refresh']")
+    public WebElement refresh_button;
+    @FindBy(css="a[title='Reset']")
+    public WebElement reset_button;}
     @FindBy(css = "li[id='user-menu']>a[class='dropdown-toggle']")
     public WebElement userMenuButton;
 

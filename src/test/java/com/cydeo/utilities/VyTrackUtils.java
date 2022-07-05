@@ -2,9 +2,12 @@ package com.cydeo.utilities;
 
 import com.cydeo.pages.DashboardPage;
 import com.cydeo.pages.LoginPage;
+import com.cydeo.pages.LogoutFunction;
+import org.openqa.selenium.WebDriver;
 import io.cucumber.java.en_old.Ac;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class VyTrackUtils {
@@ -15,24 +18,29 @@ public class VyTrackUtils {
 
 
         LoginPage loginPage = new LoginPage();
-
         loginPage.usernameBox.sendKeys(ConfigurationReader.getProperty(username));
         loginPage.passwordBox.sendKeys(ConfigurationReader.getProperty(password));
         loginPage.submitButton.click();
     }
 
     public static void goToVehiclesPage(){
-
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(),30);
+        wait.until(ExpectedConditions.titleContains("Dashboard"));
         DashboardPage dashboardPage = new DashboardPage();
         Actions actions = new Actions(Driver.getDriver());
 
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(),30);
+
         wait.until(ExpectedConditions.visibilityOf(dashboardPage.fleetModule));
 
         actions.moveToElement(dashboardPage.fleetModule).pause(1000).perform();
 
 
         dashboardPage.fleetModule.click();
-        dashboardPage.vehiclesOption.click();
+        dashboardPage.vehiclesOption.click();}
+    public static void vyTrack_logout(WebDriver driver) {
+        LogoutFunction logoutFunction=new LogoutFunction();
+        logoutFunction.logout_dropdown.click();
+        logoutFunction.logout_button.click();}}
+
     }
 }
