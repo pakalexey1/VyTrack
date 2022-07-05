@@ -6,7 +6,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class BrowserUtils {
     public static void switchWindowAndVerify( String expectedInUrl, String expectedTitle) {
@@ -32,8 +34,12 @@ public class BrowserUtils {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(),10);
         wait.until(ExpectedConditions.invisibilityOf(element));
     }
-}
 
+    public static List<String> getElementsTextWithStream(List<WebElement> elements) {
+        return elements.stream().map(x -> x.getText()).collect(Collectors.toList());
+    }
+}
+//
 /*
 TC : Create utility method
 1. Create a new class called BrowserUtils
