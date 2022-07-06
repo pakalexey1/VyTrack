@@ -45,7 +45,7 @@ public class VehiclesPage {
     @FindBy(css = "button[data-toggle=\"dropdown\"]")
     public WebElement viewPerPageDropdown;
 
-    @FindBy(xpath = "//button[contains(text(),\"50\")]")
+    @FindBy(xpath = "//a[@data-size='50']")
     public WebElement viewPerPage50Option;
 
     public boolean ifButtonOnTheLeft(String buttonOne, String buttonTwo) {

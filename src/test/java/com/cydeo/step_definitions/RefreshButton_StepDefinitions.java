@@ -42,9 +42,9 @@ public class RefreshButton_StepDefinitions {
 
     @Then("View Per Page dropdown options disappear")
     public void viewPerPageDropdownDisappears() throws InterruptedException {
-        wait.until(ExpectedConditions.invisibilityOf(vehiclesPage.viewPerPage50Option));
+
         Assert.assertFalse(vehiclesPage.viewPerPage50Option.isDisplayed());
-        Thread.sleep(5000);
+
     }
 
     @When("user clicks on View Per Page Dropdown button")
@@ -52,6 +52,7 @@ public class RefreshButton_StepDefinitions {
 
         wait.until(ExpectedConditions.elementToBeClickable(vehiclesPage.viewPerPageDropdown));
         vehiclesPage.viewPerPageDropdown.click();
+        Assert.assertTrue(vehiclesPage.viewPerPage50Option.isDisplayed());
     }
 
     @Given("Truck_Driver_second is on the vehicle page")
@@ -108,7 +109,7 @@ public class RefreshButton_StepDefinitions {
 
         wait.until(ExpectedConditions.elementToBeClickable(vehiclesPage.refreshButton));
         actions = new Actions(Driver.getDriver());
-        actions.moveToElement(vehiclesPage.refreshButton).pause(3000).perform();
+        actions.moveToElement(vehiclesPage.refreshButton).pause(1000).perform();
 
     }
 
