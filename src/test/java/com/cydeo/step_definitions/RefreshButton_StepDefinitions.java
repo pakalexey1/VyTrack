@@ -21,19 +21,12 @@ import java.util.NoSuchElementException;
 
 public class RefreshButton_StepDefinitions {
 
-    WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 30);
+    WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 60);
     VehiclesPage vehiclesPage = new VehiclesPage();
 
     BasePage basePage = new BasePage();
     Actions actions;
 
-    @Given("Truck_Driver_first is on the vehicle page")
-    public void truck_driver_first_is_on_the_vehicle_page() {
-        VyTrackUtils.login("truck_driver.username1", "password");
-        //DashboardPage dashboardPage = new DashboardPage();
-        //wait.until(ExpectedConditions.elementToBeClickable(dashboardPage.vehiclesOption));
-        VyTrackUtils.goToVehiclesPage();
-    }
 
     @When("user clicks on All Cars dropdown button")
     public void user_clicks_on_all_cars_dropdown_button() {
@@ -42,13 +35,24 @@ public class RefreshButton_StepDefinitions {
     }
 
     @When("user clicks on Refresh button")
-    public void user_clicks_on_refresh_button() {
+    public void user_clicks_on_refresh_button() throws InterruptedException {
+        wait.until(ExpectedConditions.elementToBeClickable(vehiclesPage.refreshButton));
         vehiclesPage.refreshButton.click();
     }
 
-    @Then("All Cars dropdown option disappears")
-    public void all_cars_dropdown_option_disappears() {
-        Assert.assertTrue(!vehiclesPage.allCarsOption.isDisplayed());
+    @Then("View Per Page dropdown options disappear")
+    public void viewPerPageDropdownDisappears() throws InterruptedException {
+
+        Assert.assertFalse(vehiclesPage.viewPerPage50Option.isDisplayed());
+
+    }
+
+    @When("user clicks on View Per Page Dropdown button")
+    public void userClicksOnViewPerPageDropdownButton() throws InterruptedException {
+
+        wait.until(ExpectedConditions.elementToBeClickable(vehiclesPage.viewPerPageDropdown));
+        vehiclesPage.viewPerPageDropdown.click();
+        Assert.assertTrue(vehiclesPage.viewPerPage50Option.isDisplayed());
     }
 
     @Given("Truck_Driver_second is on the vehicle page")
@@ -94,12 +98,10 @@ public class RefreshButton_StepDefinitions {
     /**
      * Sasha's stuff below:
      **/
-    @Given("{string} {string}  is on the vehicle page")
-    public void isOnTheVehiclePage(String username, String password) {
-
+    @Given("user {string} enters {string} on the vehicle page")
+    public void isOnTheVehiclePage(String username, String password) throws InterruptedException {
         VyTrackUtils.login(username, password);
         VyTrackUtils.goToVehiclesPage();
-
     }
 
     @When("user moves to Refresh button")
@@ -107,7 +109,7 @@ public class RefreshButton_StepDefinitions {
 
         wait.until(ExpectedConditions.elementToBeClickable(vehiclesPage.refreshButton));
         actions = new Actions(Driver.getDriver());
-        actions.moveToElement(vehiclesPage.refreshButton).pause(3000).perform();
+        actions.moveToElement(vehiclesPage.refreshButton).pause(1000).perform();
 
     }
 
@@ -155,6 +157,7 @@ public class RefreshButton_StepDefinitions {
         }
         VyTrackUtils.vyTrack_logout();
     }
+
 }
 
 
