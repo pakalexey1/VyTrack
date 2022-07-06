@@ -23,19 +23,10 @@ public class VehiclesPage {
 
     @FindBy(css = "a[title='XLSX']")
     public WebElement xlsxButton;
-    @FindBy(css="a[title='Grid Settings']")
-    public WebElement grid_settings;
-    @FindBy(css="a[title='Refresh']")
+    @FindBy(css = "a[title='Refresh']")
     public WebElement refresh_button;
-    @FindBy(css="a[title='Reset']")
+    @FindBy(css = "a[title='Reset']")
     public WebElement reset_button;
-//added to VehiclesPage
-    @FindBy(css = "li[id='user-menu']>a[class='dropdown-toggle']")
-    public WebElement userMenuButton;
-
-    @FindBy(css = "li[class='last']>a[class='no-hash']")
-    public WebElement logoutButton;
-
     @FindBy(className = "oro-subtitle")
     public WebElement allCarsDropDownButton;
 
@@ -45,16 +36,6 @@ public class VehiclesPage {
     @FindBy(css = "a[title=\"Refresh\"]")
     public WebElement refreshButton;
 
-    @FindBy(xpath = "//a[@title='Reset']")
-    public WebElement resetButton;
-
-    public void logout() {
-        wait.until(ExpectedConditions.visibilityOf(this.userMenuButton));
-        this.userMenuButton.click();
-
-        wait.until(ExpectedConditions.visibilityOf(this.logoutButton));
-        this.logoutButton.click();
-    }
     @FindBy(css = "div[class='column-manager dropdown']")
     public WebElement gridSettingsButton;
 

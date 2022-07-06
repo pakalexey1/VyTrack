@@ -14,7 +14,6 @@ public class Hooks {
 
     }
 
-
     // @After is coming from cucumber. It is running after each scenario
     @After
     public void teardownScenario(Scenario scenario){
@@ -25,7 +24,6 @@ public class Hooks {
 
             byte[] screenshot = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
             scenario.attach(screenshot, "image/png", scenario.getName());
-
         }
 
         Driver.closeDriver();

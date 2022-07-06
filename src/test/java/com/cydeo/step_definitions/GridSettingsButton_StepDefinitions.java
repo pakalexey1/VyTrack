@@ -1,5 +1,6 @@
 package com.cydeo.step_definitions;
 
+import com.cydeo.pages.BasePage;
 import com.cydeo.pages.VehiclesPage;
 import com.cydeo.utilities.Driver;
 import com.cydeo.utilities.VyTrackUtils;
@@ -12,8 +13,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class GridSettingsButton_StepDefinitions {
     WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 30);
-    Actions actions;
 
+    BasePage basePage = new BasePage();
     VehiclesPage vehiclesPage = new VehiclesPage();
 
 
@@ -31,7 +32,7 @@ public class GridSettingsButton_StepDefinitions {
         vehiclesPage.gridSettingsButton.click();
         Assert.assertTrue(vehiclesPage.gridSettingsDropdown.isDisplayed());
 
-        vehiclesPage.logout();
+        basePage.logout();
     }
 
 
