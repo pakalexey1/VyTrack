@@ -42,6 +42,12 @@ public class VehiclesPage {
     @FindBy(css = "div[class='column-manager dropdown open']")
     public WebElement gridSettingsDropdown;
 
+    @FindBy(css = "button[data-toggle=\"dropdown\"]")
+    public WebElement viewPerPageDropdown;
+
+    @FindBy(xpath = "//button[contains(text(),\"50\")]")
+    public WebElement viewPerPage50Option;
+
     public boolean ifButtonOnTheLeft(String buttonOne, String buttonTwo) {
         boolean check = false;
         String xpath = "//a[@title='" + buttonOne + "']/..//preceding-sibling::a[@title='" + buttonTwo + "']";
