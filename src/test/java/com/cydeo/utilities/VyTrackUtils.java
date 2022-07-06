@@ -12,7 +12,7 @@ public class VyTrackUtils {
 
     public static void login(String username, String password) {
         Driver.getDriver().get(ConfigurationReader.getProperty("vytrack.login"));
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 20);
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 60);
 
 
         LoginPage loginPage = new LoginPage();
@@ -22,7 +22,7 @@ public class VyTrackUtils {
     }
 
     public static void goToVehiclesPage() {
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 30);
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 60);
         wait.until(ExpectedConditions.titleContains("Dashboard"));
         DashboardPage dashboardPage = new DashboardPage();
         Actions actions = new Actions(Driver.getDriver());

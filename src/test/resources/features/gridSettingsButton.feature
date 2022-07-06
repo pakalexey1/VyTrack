@@ -21,13 +21,10 @@ Feature: click Grid Setting Button
     And user can see Grid Settings button to the right side of Reset button and click
 
 
-
   @StoreManager_GridBtn_first
   Scenario: StoreManager_GridBtn_first can click Grid Settings button
     Given StoreManager_GridBtn_first is on the vehicle page
     And user can see Grid Settings button to the right side of Reset button and click
-
-
 
 
   @StoreManager_GridBtn_second
