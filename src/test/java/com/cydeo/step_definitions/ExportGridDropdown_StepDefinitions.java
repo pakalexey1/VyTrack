@@ -1,6 +1,6 @@
 package com.cydeo.step_definitions;
 
-import com.cydeo.pages.DashboardPage;
+import com.cydeo.pages.BasePage;
 import com.cydeo.pages.VehiclesPage;
 import com.cydeo.utilities.Driver;
 import com.cydeo.utilities.VyTrackUtils;
@@ -8,81 +8,73 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.Point;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ExportGridDropdown_StepDefinitions {
 
+    VehiclesPage vehiclesPage = new VehiclesPage();
+    Actions actions;
     WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 30);
-    DashboardPage dashboardPage = new DashboardPage();
 
-    @Given("Track_Driver_first is on the vehicle page")
-    public void track_driver_firstIsOnTheVehiclePage() {
-        VyTrackUtils.login("truck_driver.username1", "password");
+    BasePage basePage = new BasePage();
+
+    @Given("^user \"([^\"]*)\" \"([^\"]*)\" is on the vehicle page$")
+    public void user_is_on_the_vehicle_page(String arg1, String arg2) {
+        VyTrackUtils.login(arg1, arg2);
         VyTrackUtils.goToVehiclesPage();
     }
 
-    @When("user clicks on Export Grid dropdown button")
-    public void user_clicks_on_export_grid_dropdown_button() throws InterruptedException {
+    @When("^user clicks on Export Grid dropdown button$")
+    public void user_clicks_on_export_grid_dropdown_button() {
         VehiclesPage vehiclesPage = new VehiclesPage();
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 30);
         wait.until(ExpectedConditions.elementToBeClickable(vehiclesPage.exportGridDropdownButton));
         vehiclesPage.exportGridDropdownButton.click();
     }
 
-    @Then("user should see two options: CSV and XLSX")
+    @Then("^user should see two options: CSV and XLSX$")
     public void user_should_see_two_options_csv_and_xlsx() {
         VehiclesPage vehiclesPage = new VehiclesPage();
-
         Assert.assertTrue(vehiclesPage.csvButton.isDisplayed());
         Assert.assertTrue(vehiclesPage.xlsxButton.isDisplayed());
-        vehiclesPage.logout();
+        VyTrackUtils.vyTrack_logout();
     }
 
-    @Given("Track_Driver_second is on the vehicle page")
-    public void track_driver_secondIsOnTheVehiclePage() {
-        VyTrackUtils.login("truck_driver.username2", "password");
+    /**
+     * Ganjina's Stuff:
+     */
+
+    @Given("user {string} {string} is on the All cars page")
+    public void userIsOnTheAllCarsPage(String username, String password) {
+        VyTrackUtils.login(username, password);
         VyTrackUtils.goToVehiclesPage();
     }
 
-    @Given("Track_Driver_third is on the vehicle page")
-    public void track_driver_thirdIsOnTheVehiclePage() {
-        VyTrackUtils.login("truck_driver.username3", "password");
-        VyTrackUtils.goToVehiclesPage();
+    @When("user moves to Export Grid Dropdown button")
+    public void user_moves_to_export_grid_dropdown_button() {
+        wait.until(ExpectedConditions.elementToBeClickable(vehiclesPage.exportGridDropdownButton));
+        actions = new Actions(Driver.getDriver());
+        actions.moveToElement(vehiclesPage.exportGridDropdownButton).pause(3000).perform();
     }
 
-    @Given("Store_Manager_first is on the vehicle page")
-    public void store_manager_firstIsOnTheVehiclePage() {
-        VyTrackUtils.login("store_manager.username1", "password");
-        VyTrackUtils.goToVehiclesPage();
-    }
+    @Then("user sees the Export Grid Dropdown button on the left side of the page")
+    public void user_sees_the_export_grid_dropdown_button_on_the_left_side_of_the_page() {
+        Point location = vehiclesPage.exportGridDropdownButton.getLocation();
+        int winHeight = Driver.getDriver().manage().window().getSize().getHeight();
+        int winWidth = Driver.getDriver().manage().window().getSize().getWidth();
+        int xPos = location.getX();
+        int yPos = location.getY();
+        int height = vehiclesPage.exportGridDropdownButton.getSize().getHeight();
+        int width = vehiclesPage.exportGridDropdownButton.getSize().getWidth();
 
-    @Given("Store_Manager_second is on the vehicle page")
-    public void store_manager_secondIsOnTheVehiclePage() {
-        VyTrackUtils.login("store_manager.username2", "password");
-        VyTrackUtils.goToVehiclesPage();
-    }
+        Assert.assertTrue("Test failed", ((xPos + width) <= winWidth / 2) && (yPos + height) <= winHeight / 2);
 
-    @Given("Store_Manager_third is on the vehicle page")
-    public void store_manager_thirdIsOnTheVehiclePage() {
-        VyTrackUtils.login("store_manager.username3", "password");
-        VyTrackUtils.goToVehiclesPage();
-    }
-
-    @Given("Sales_Manager_first is on the vehicle page")
-    public void sales_manager_firstIsOnTheVehiclePage() {
-        VyTrackUtils.login("sales_manager.username1", "password");
-        VyTrackUtils.goToVehiclesPage();
-    }
-
-    @Given("Sales_Manager_second is on the vehicle page")
-    public void sales_manager_secondIsOnTheVehiclePage() {
-        VyTrackUtils.login("sales_manager.username2", "password");
-        VyTrackUtils.goToVehiclesPage();
-    }
-
-    @Given("Sales_Manager_third is on the vehicle page")
-    public void sales_manager_thirdIsOnTheVehiclePage() {
-        VyTrackUtils.login("sales_manager.username3", "password");
-        VyTrackUtils.goToVehiclesPage();
+        basePage.logout();
     }
 }
+
+//solution for feature 1
+

@@ -1,5 +1,6 @@
 package com.cydeo.step_definitions;
 
+import com.cydeo.pages.BasePage;
 import com.cydeo.pages.LoginPage;
 import com.cydeo.utilities.ConfigurationReader;
 import com.cydeo.utilities.Driver;
@@ -12,6 +13,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Login_StepDefinitions {
 
+    BasePage basePage = new BasePage();
     LoginPage loginPage = new LoginPage();
     WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
 
@@ -29,6 +31,6 @@ public class Login_StepDefinitions {
     public void user_should_see_dashboard() {
         wait.until(ExpectedConditions.titleContains(ConfigurationReader.getProperty("dashboard")));
         Assert.assertEquals("Dashboard verification failed", ConfigurationReader.getProperty("dashboard"), Driver.getDriver().getTitle() );
-        loginPage.logout();
+        basePage.logout();
     }
 }
