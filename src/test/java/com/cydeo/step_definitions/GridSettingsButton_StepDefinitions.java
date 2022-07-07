@@ -24,8 +24,8 @@ public class GridSettingsButton_StepDefinitions {
         VyTrackUtils.goToVehiclesPage();
     }
 
-    @Given("user can see Grid Settings button to the right side of Reset button and click")
-    public void user_can_see_grid_settings_button_to_the_right_side_of_Reset_button_and_click() {
+    @Given("user can see Grid Settings button and click")
+    public void user_can_see_grid_settings_button_and_click() {
 
         Assert.assertTrue(vehiclesPage.gridSettingsButton.isDisplayed());
    wait.until(ExpectedConditions.elementToBeClickable(vehiclesPage.gridSettingsButton));
