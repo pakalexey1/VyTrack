@@ -27,8 +27,10 @@ public class GridSettingsButton_StepDefinitions {
     @Given("user can see Grid Settings button and click")
     public void user_can_see_grid_settings_button_and_click() {
 
+
+        wait.until(ExpectedConditions.elementToBeClickable(vehiclesPage.gridSettingsButton));
         Assert.assertTrue(vehiclesPage.gridSettingsButton.isDisplayed());
-   wait.until(ExpectedConditions.elementToBeClickable(vehiclesPage.gridSettingsButton));
+
         vehiclesPage.gridSettingsButton.click();
         Assert.assertTrue(vehiclesPage.gridSettingsDropdown.isDisplayed());
 
