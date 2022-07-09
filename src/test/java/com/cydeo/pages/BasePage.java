@@ -27,7 +27,7 @@ public class BasePage {
 
     public void logout() {
         wait.until(ExpectedConditions.visibilityOf(logout_dropdown));
-        logout_button.click();
+        logout_dropdown.click();
 
         wait.until(ExpectedConditions.visibilityOf(logout_button));
         logout_button.click();
