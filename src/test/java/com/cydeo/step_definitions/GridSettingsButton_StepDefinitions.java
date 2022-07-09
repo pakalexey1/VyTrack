@@ -20,7 +20,7 @@ public class GridSettingsButton_StepDefinitions {
 
     @Given("TruckDriver_GridBtn_first is on the vehicle page")
     public void truck_driver_grid_btn_first_is_on_the_vehicle_page() {
-        VyTrackUtils.login("truck_driver.username1", "password");
+        VyTrackUtils.login("truck_driver_username1", "password");
         VyTrackUtils.goToVehiclesPage();
     }
 
@@ -38,7 +38,7 @@ public class GridSettingsButton_StepDefinitions {
 
     @Given("TruckDriver_GridBtn_second is on the vehicle page")
     public void truck_driver_grid_btn_second_is_on_the_vehicle_page() {
-        VyTrackUtils.login("truck_driver.username2", "password");
+        VyTrackUtils.login("truck_driver_username2", "password");
 
         VyTrackUtils.goToVehiclesPage();
 
@@ -47,7 +47,7 @@ public class GridSettingsButton_StepDefinitions {
 
     @Given("TruckDriver_GridBtn_third is on the vehicle page")
     public void truck_driver_grid_btn_third_is_on_the_vehicle_page() {
-        VyTrackUtils.login("truck_driver.username3", "password");
+        VyTrackUtils.login("truck_driver_username3", "password");
 
         VyTrackUtils.goToVehiclesPage();
 
@@ -56,7 +56,7 @@ public class GridSettingsButton_StepDefinitions {
 
     @Given("StoreManager_GridBtn_first is on the vehicle page")
     public void store_manager_grid_btn_first_is_on_the_vehicle_page() {
-        VyTrackUtils.login("store_manager.username1", "password");
+        VyTrackUtils.login("store_manager_username1", "password");
 
         VyTrackUtils.goToVehiclesPage();
 
@@ -65,7 +65,7 @@ public class GridSettingsButton_StepDefinitions {
 
     @Given("StoreManager_GridBtn_second is on the vehicle page")
     public void store_manager_grid_btn_second_is_on_the_vehicle_page() {
-        VyTrackUtils.login("store_manager.username2", "password");
+        VyTrackUtils.login("store_manager_username2", "password");
 
         VyTrackUtils.goToVehiclesPage();
     }
@@ -73,7 +73,7 @@ public class GridSettingsButton_StepDefinitions {
 
     @Given("StoreManager_GridBtn_third is on the vehicle page")
     public void store_manager_grid_btn_third_is_on_the_vehicle_page() {
-        VyTrackUtils.login("store_manager.username3", "password");
+        VyTrackUtils.login("store_manager_username3", "password");
 
         VyTrackUtils.goToVehiclesPage();
     }
@@ -81,7 +81,7 @@ public class GridSettingsButton_StepDefinitions {
 
     @Given("SalesManager_GridBtn_first is on the vehicle page")
     public void sales_manager_grid_btn_first_is_on_the_vehicle_page() {
-        VyTrackUtils.login("sales_manager.username1", "password");
+        VyTrackUtils.login("sales_manager_username1", "password");
 
         VyTrackUtils.goToVehiclesPage();
     }
@@ -89,7 +89,7 @@ public class GridSettingsButton_StepDefinitions {
 
     @Given("SalesManager_GridBtn_second is on the vehicle page")
     public void sales_manager_grid_btn_second_is_on_the_vehicle_page() {
-        VyTrackUtils.login("sales_manager.username2", "password");
+        VyTrackUtils.login("sales_manager_username2", "password");
 
         VyTrackUtils.goToVehiclesPage();
     }
@@ -97,7 +97,7 @@ public class GridSettingsButton_StepDefinitions {
 
     @Given("SalesManager_GridBtn_third is on the vehicle page")
     public void sales_manager_grid_btn_third_is_on_the_vehicle_page() {
-        VyTrackUtils.login("sales_manager.username3", "password");
+        VyTrackUtils.login("sales_manager_username3", "password");
 
         VyTrackUtils.goToVehiclesPage();
     }
