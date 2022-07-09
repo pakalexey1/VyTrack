@@ -28,6 +28,4 @@ public class LoginPage {
         passwordBox.sendKeys(ConfigurationReader.getProperty(password));
         submitButton.click();
     }
-
-
 }
