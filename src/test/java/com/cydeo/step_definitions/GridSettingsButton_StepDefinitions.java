@@ -2,6 +2,7 @@ package com.cydeo.step_definitions;
 
 import com.cydeo.pages.BasePage;
 import com.cydeo.pages.VehiclesPage;
+import com.cydeo.utilities.BrowserUtils;
 import com.cydeo.utilities.Driver;
 import com.cydeo.utilities.VyTrackUtils;
 import io.cucumber.java.en.Given;
@@ -12,11 +13,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class GridSettingsButton_StepDefinitions {
-    WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 30);
-
     BasePage basePage = new BasePage();
     VehiclesPage vehiclesPage = new VehiclesPage();
-
 
     @Given("TruckDriver_GridBtn_first is on the vehicle page")
     public void truck_driver_grid_btn_first_is_on_the_vehicle_page() {
@@ -27,8 +25,7 @@ public class GridSettingsButton_StepDefinitions {
     @Given("user can see Grid Settings button and click")
     public void user_can_see_grid_settings_button_and_click() {
 
-
-        wait.until(ExpectedConditions.elementToBeClickable(vehiclesPage.gridSettingsButton));
+        BrowserUtils.getWait10().until(ExpectedConditions.elementToBeClickable(vehiclesPage.gridSettingsButton));
         Assert.assertTrue(vehiclesPage.gridSettingsButton.isDisplayed());
 
         vehiclesPage.gridSettingsButton.click();
@@ -61,7 +58,6 @@ public class GridSettingsButton_StepDefinitions {
         VyTrackUtils.login("store_manager_username1", "password");
 
         VyTrackUtils.goToVehiclesPage();
-
     }
 
 
