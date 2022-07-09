@@ -1,6 +1,8 @@
 package com.cydeo.pages;
 
+import com.cydeo.utilities.BrowserUtils;
 import com.cydeo.utilities.Driver;
+import com.cydeo.utilities.VyTrackUtils;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -8,12 +10,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BasePage {
-    WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 15);
-
     public BasePage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
-
     @FindBy(xpath = "//a[@href='javascript: void(0);']")
     public WebElement logout_dropdown;
     @FindBy(xpath = "//a[.='Logout']")
@@ -26,10 +25,11 @@ public class BasePage {
     public WebElement vehiclesOption;
 
     public void logout() {
-        wait.until(ExpectedConditions.visibilityOf(logout_dropdown));
+
+        BrowserUtils.getWait10().until(ExpectedConditions.visibilityOf(logout_dropdown));
         logout_dropdown.click();
 
-        wait.until(ExpectedConditions.visibilityOf(logout_button));
+        BrowserUtils.getWait10().until(ExpectedConditions.visibilityOf(logout_button));
         logout_button.click();
     }
 }
