@@ -13,7 +13,7 @@ import org.junit.Assert;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class Login_StepDefinitions {
+public class Login_StepDefinitions extends BasePage{
 
     BasePage basePage = new BasePage();
     LoginPage loginPage = new LoginPage();
@@ -31,7 +31,7 @@ public class Login_StepDefinitions {
 
     @Then("user should see dashboard")
     public void user_should_see_dashboard() {
-        BrowserUtils.getWait10().until(ExpectedConditions.titleContains(ConfigurationReader.getProperty("dashboard")));
+        getWait10().until(ExpectedConditions.titleContains(ConfigurationReader.getProperty("dashboard")));
         Assert.assertEquals("Dashboard verification failed", ConfigurationReader.getProperty("dashboard"), Driver.getDriver().getTitle() );
         basePage.logout();
     }

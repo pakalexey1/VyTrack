@@ -5,7 +5,6 @@ import com.cydeo.utilities.Driver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LoginPage {
     public LoginPage() {
@@ -20,7 +19,6 @@ public class LoginPage {
 
     @FindBy(id = "_submit")
     public WebElement submitButton;
-
 
     public void loginWithCredentials(String username, String password) {
 

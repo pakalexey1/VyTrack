@@ -1,9 +1,9 @@
 package com.cydeo.utilities;
 
+import com.cydeo.pages.BasePage;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -11,24 +11,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class BrowserUtils {
-
-    private static WebDriverWait wait;
-    private static Actions actions;
-
-    public static WebDriverWait getWait10() {
-        if (wait == null) {
-            wait = new WebDriverWait(Driver.getDriver(), 10);
-        }
-        return wait;
-    }
-
-    public static Actions getActions() {
-        if(actions == null) {
-            actions = new Actions(Driver.getDriver());
-        }
-        return actions;
-    }
+public class BrowserUtils extends BasePage {
     public static void switchWindowAndVerify( String expectedInUrl, String expectedTitle) {
         Set<String> allWindowHandles = Driver.getDriver().getWindowHandles();
 
