@@ -16,11 +16,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.NoSuchElementException;
 
-public class RefreshButton_StepDefinitions {
+public class RefreshButton_StepDefinitions extends BasePage{
     VehiclesPage vehiclesPage = new VehiclesPage();
 
     BasePage basePage = new BasePage();
@@ -29,13 +28,13 @@ public class RefreshButton_StepDefinitions {
 
     @When("user clicks on All Cars dropdown button")
     public void user_clicks_on_all_cars_dropdown_button() {
-        BrowserUtils.getWait10().until(ExpectedConditions.elementToBeClickable(vehiclesPage.allCarsDropDownButton));
+        getWait10().until(ExpectedConditions.elementToBeClickable(vehiclesPage.allCarsDropDownButton));
         vehiclesPage.allCarsDropDownButton.click();
     }
 
     @When("user clicks on Refresh button")
     public void user_clicks_on_refresh_button() throws InterruptedException {
-        BrowserUtils.getWait10().until(ExpectedConditions.elementToBeClickable(vehiclesPage.refreshButton));
+        getWait10().until(ExpectedConditions.elementToBeClickable(vehiclesPage.refreshButton));
         vehiclesPage.refreshButton.click();
     }
 
@@ -49,7 +48,7 @@ public class RefreshButton_StepDefinitions {
     @When("user clicks on View Per Page Dropdown button")
     public void userClicksOnViewPerPageDropdownButton() throws InterruptedException {
 
-        BrowserUtils.getWait10().until(ExpectedConditions.elementToBeClickable(vehiclesPage.viewPerPageDropdown));
+        getWait10().until(ExpectedConditions.elementToBeClickable(vehiclesPage.viewPerPageDropdown));
         vehiclesPage.viewPerPageDropdown.click();
         Assert.assertTrue(vehiclesPage.viewPerPage50Option.isDisplayed());
     }
@@ -106,7 +105,7 @@ public class RefreshButton_StepDefinitions {
     @When("user moves to Refresh button")
     public void user_moves_to_refresh_button() {
 
-        BrowserUtils.getWait10().until(ExpectedConditions.elementToBeClickable(vehiclesPage.refreshButton));
+        getWait10().until(ExpectedConditions.elementToBeClickable(vehiclesPage.refreshButton));
         actions = new Actions(Driver.getDriver());
         actions.moveToElement(vehiclesPage.refreshButton).pause(1000).perform();
 
@@ -125,7 +124,7 @@ public class RefreshButton_StepDefinitions {
      */
     @When("^user clicks on the Refresh button$")
     public void user_clicks_on_the_refresh_button() {
-        BrowserUtils.getWait10().until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("a[title='Refresh']")));
+        getWait10().until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("a[title='Refresh']")));
         VehiclesPage vehiclesPage = new VehiclesPage();
         Assert.assertTrue(vehiclesPage.reset_button.isDisplayed());
         Assert.assertTrue(vehiclesPage.reset_button.isEnabled());
@@ -135,7 +134,7 @@ public class RefreshButton_StepDefinitions {
     public void user_see_page_is_refreshed() {
         VehiclesPage vehiclesPage = new VehiclesPage();
         boolean clicked = false;
-        BrowserUtils.getWait10().until(ExpectedConditions.elementToBeClickable(vehiclesPage.refresh_button));
+        getWait10().until(ExpectedConditions.elementToBeClickable(vehiclesPage.refresh_button));
         try {
             vehiclesPage.refresh_button.click();
             clicked = true;
@@ -150,7 +149,7 @@ public class RefreshButton_StepDefinitions {
             }
         };
         try {
-            BrowserUtils.getWait10().until(expectation);
+            getWait10().until(expectation);
         } catch (Throwable error) {
             Assert.assertFalse("Timeout waiting for Page Load", true);
         }
