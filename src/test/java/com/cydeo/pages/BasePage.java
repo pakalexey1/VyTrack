@@ -28,7 +28,7 @@ public class BasePage extends BaseModel{
 
     public void logout() {
 
-        getWait10().until(ExpectedConditions.visibilityOf(logout_dropdown));
+        getWait10().until(ExpectedConditions.elementToBeClickable(logout_dropdown));
         logout_dropdown.click();
 
         getWait10().until(ExpectedConditions.visibilityOf(logout_button));
