@@ -14,7 +14,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class ExportGridDropdown_StepDefinitions {
+public class ExportGridDropdown_StepDefinitions extends BasePage{
 
     VehiclesPage vehiclesPage = new VehiclesPage();
     BasePage basePage = new BasePage();
@@ -28,7 +28,7 @@ public class ExportGridDropdown_StepDefinitions {
     @When("^user clicks on Export Grid dropdown button$")
     public void user_clicks_on_export_grid_dropdown_button() {
 
-        BrowserUtils.getWait10().until(ExpectedConditions.elementToBeClickable(vehiclesPage.exportGridDropdownButton));
+        getWait10().until(ExpectedConditions.elementToBeClickable(vehiclesPage.exportGridDropdownButton));
         vehiclesPage.exportGridDropdownButton.click();
     }
 
@@ -52,8 +52,7 @@ public class ExportGridDropdown_StepDefinitions {
 
     @When("user moves to Export Grid Dropdown button")
     public void user_moves_to_export_grid_dropdown_button() {
-        BrowserUtils.getWait10().until(ExpectedConditions.elementToBeClickable(vehiclesPage.exportGridDropdownButton));
-        BrowserUtils.getActions().moveToElement(vehiclesPage.exportGridDropdownButton).pause(3000).perform();
+        getWait10().until(ExpectedConditions.elementToBeClickable(vehiclesPage.exportGridDropdownButton));
     }
 
     @Then("user sees the Export Grid Dropdown button on the left side of the page")
