@@ -13,8 +13,6 @@ public class VehiclesPage {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-    WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
-
     @FindBy(xpath = "//a[contains(@title,'export')]")
     public WebElement exportGridDropdownButton;
 

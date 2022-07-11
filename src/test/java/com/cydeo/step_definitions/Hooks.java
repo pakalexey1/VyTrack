@@ -3,22 +3,16 @@ import com.cydeo.utilities.Driver;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
-import org.junit.AfterClass;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 public class Hooks {
-
-    // @Before is coming from cucumber. It is running before each scenario
     @Before
     public void setUpScenario(){
 
     }
 
-    // @After is coming from cucumber. It is running after each scenario
     @After
     public void teardownScenario(Scenario scenario){
-        System.out.println("--> It is coming from @After in Hooks ");
-
 
         if(scenario.isFailed()) {
 
