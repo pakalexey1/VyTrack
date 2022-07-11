@@ -1,6 +1,6 @@
-package com.cydeo.utilities;
+package com.cydeo.pages;
 
-import org.openqa.selenium.WebDriver;
+import com.cydeo.utilities.Driver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
