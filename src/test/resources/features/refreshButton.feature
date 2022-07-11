@@ -5,7 +5,7 @@ Feature: Refresh button
 
   @refreshButtonClickByTruckDriver
   Scenario Outline: user can click on Refresh button
-    Given user "<truck_driver_username>" enters "<password>" on the vehicle page
+    Given user "<truck_driver_username>" enters "<password>" is on the vehicle page
     When user clicks on View Per Page Dropdown button
     And user clicks on Refresh button
     Then View Per Page dropdown options disappear
@@ -17,7 +17,7 @@ Feature: Refresh button
 
   @StoreManager_first
   Scenario Outline: StoreManager_first can click on Refresh button
-    Given user "<store_manager_username>" "<password>" is on the vehicle page
+    Given user "<store_manager_username>" enters "<password>" is on the vehicle page
     When user clicks on All Cars dropdown button
     And user clicks on Refresh button
     Then View Per Page dropdown options disappear
@@ -28,30 +28,22 @@ Feature: Refresh button
       | store_manager_username3 | password |
 
   @SalesManager_first
-  Scenario: SalesManager_first can click on Refresh button
-    Given Sales_Manager_first is on the vehicle page
+  Scenario Outline: StoreManager_first can click on Refresh button
+    Given user "<sales_manager_username>" enters "<password>" is on the vehicle page
     When user clicks on All Cars dropdown button
     And user clicks on Refresh button
-    Then All Cars dropdown option disappears
+    Then View Per Page dropdown options disappear
+    Examples:
+      | sales_manager_username  | password |
+      | sales_manager_username1 | password |
+      | sales_manager_username2 | password |
+      | sales_manager_username3 | password |
 
-  @SalesManager_second
-  Scenario: SalesManager_second can click on Refresh button
-    Given SalesManager_second is on the vehicle page
-    When user clicks on All Cars dropdown button
-    And user clicks on Refresh button
-    Then All Cars dropdown option disappears
-
-  @SalesManager_third
-  Scenario: SalesManager_third can click on Refresh button
-    Given SalesManager_third is on the vehicle page
-    When user clicks on All Cars dropdown button
-    And user clicks on Refresh button
-    Then All Cars dropdown option disappears
 
   @Sasha
 #  Feature: Refresh button is to the left side of Reset button
   Scenario Outline: Truck Driver can see Refresh button to the left side of Reset button
-    Given user "<truck_driver_username>" "<password>" is on the vehicle page
+    Given user "<truck_driver_username>" enters "<password>" is on the vehicle page
     When user moves to Refresh button
     Then user can see Refresh button to the left side of Reset button
     Examples:
@@ -89,7 +81,7 @@ Feature: Refresh button
 #User should be able to click on the Refresh button
     @TruckDriver_3 @B26G15-127 @B26G15-130 @Hanna
   Scenario Outline: Truck driver clicked on the Refresh button and it refreshed the page
-    Given user "<truck_driver_username>" "<password>" is on the vehicle page
+    Given user "<truck_driver_username>" enters "<password>" is on the vehicle page
     When user clicks on the Refresh button
     Then user see page is refreshed
     Examples:
@@ -100,7 +92,7 @@ Feature: Refresh button
 
   @StoreManager_3 @B26G15-128 @B26G15-130 @Hanna
   Scenario Outline: Store Manager clicked on the "Refresh" button and it refreshed the page
-    Given user "<store_manager_username>" "<password>" is on the vehicle page
+    Given user "<store_manager_username>" enters "<password>" is on the vehicle page
     When user clicks on the Refresh button
     Then user see page is refreshed
     Examples:
@@ -111,7 +103,7 @@ Feature: Refresh button
 
   @3SalesManager_3 @B26G15-129 @B26G15-130  @Hanna
   Scenario Outline: Sales Manager clicked on the "Refresh" button and it refreshed the page
-    Given user "<sales_manager_username>" "<password>" is on the vehicle page
+    Given user "<sales_manager_username>" enters "<password>" is on the vehicle page
     When user clicks on the Refresh button
     Then user see page is refreshed
     Examples:

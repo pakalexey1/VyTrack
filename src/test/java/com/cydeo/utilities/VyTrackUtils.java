@@ -31,6 +31,16 @@ public class VyTrackUtils extends BasePage {
         basePage.fleetModule.click();
         basePage.vehiclesOption.click();
     }
+
+    public static void waitFor(int seconds) {
+        try {
+            Thread.sleep(seconds * 1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 }
 
 
