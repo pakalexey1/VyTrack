@@ -9,16 +9,11 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.Point;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class ExportGridDropdown_StepDefinitions {
+public class ExportGridDropdown_StepDefinitions extends BasePage{
 
     VehiclesPage vehiclesPage = new VehiclesPage();
-    Actions actions;
-    WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 30);
-
     BasePage basePage = new BasePage();
 
     @Given("^user \"([^\"]*)\" \"([^\"]*)\" is on the vehicle page$")
@@ -30,8 +25,8 @@ public class ExportGridDropdown_StepDefinitions {
     @When("^user clicks on Export Grid dropdown button$")
     public void user_clicks_on_export_grid_dropdown_button() {
 
-        wait.until(ExpectedConditions.elementToBeClickable(vehiclesPage.viewPerPageDropdown));
-        vehiclesPage.viewPerPageDropdown.click();
+        getWait10().until(ExpectedConditions.elementToBeClickable(vehiclesPage.exportGridDropdownButton));
+        vehiclesPage.exportGridDropdownButton.click();
     }
 
     @Then("^user should see two options: CSV and XLSX$")
@@ -39,7 +34,7 @@ public class ExportGridDropdown_StepDefinitions {
 
         Assert.assertTrue(vehiclesPage.csvButton.isDisplayed());
         Assert.assertTrue(vehiclesPage.xlsxButton.isDisplayed());
-        VyTrackUtils.vyTrack_logout();
+        basePage.logout();
     }
 
     /**
@@ -54,9 +49,7 @@ public class ExportGridDropdown_StepDefinitions {
 
     @When("user moves to Export Grid Dropdown button")
     public void user_moves_to_export_grid_dropdown_button() {
-        wait.until(ExpectedConditions.elementToBeClickable(vehiclesPage.exportGridDropdownButton));
-        actions = new Actions(Driver.getDriver());
-        actions.moveToElement(vehiclesPage.exportGridDropdownButton).pause(3000).perform();
+        getWait10().until(ExpectedConditions.elementToBeClickable(vehiclesPage.exportGridDropdownButton));
     }
 
     @Then("user sees the Export Grid Dropdown button on the left side of the page")
@@ -75,5 +68,5 @@ public class ExportGridDropdown_StepDefinitions {
     }
 }
 
-//solution for feature 1
+
 

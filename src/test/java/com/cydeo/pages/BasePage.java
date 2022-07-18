@@ -5,14 +5,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class BasePage {
-    WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 15);
+public class BasePage extends BaseModel{
 
     public BasePage() {
-        PageFactory.initElements(Driver.getDriver(), this);
-    }
+        PageFactory.initElements(Driver.getDriver(), this);   }
 
     @FindBy(xpath = "//a[@href='javascript: void(0);']")
     public WebElement logout_dropdown;
@@ -25,11 +22,16 @@ public class BasePage {
     @FindBy(xpath = "//span[.='Vehicles']")
     public WebElement vehiclesOption;
 
-    public void logout() {
-        wait.until(ExpectedConditions.visibilityOf(logout_dropdown));
-        logout_button.click();
+    @FindBy(css = "div[class='loader-mask shown']")
+    public WebElement loaderMask;
 
-        wait.until(ExpectedConditions.visibilityOf(logout_button));
+    public void logout() {
+
+        getWait10().until(ExpectedConditions.visibilityOf(logout_dropdown));
+        getWait10().until(ExpectedConditions.elementToBeClickable(logout_dropdown));
+        logout_dropdown.click();
+
+        getWait10().until(ExpectedConditions.visibilityOf(logout_button));
         logout_button.click();
     }
 }
