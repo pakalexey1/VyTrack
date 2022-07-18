@@ -1,5 +1,6 @@
 package com.cydeo.utilities;
 
+import com.cydeo.pages.BasePage;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,7 +11,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class BrowserUtils {
+public class BrowserUtils extends BasePage {
     public static void switchWindowAndVerify( String expectedInUrl, String expectedTitle) {
         Set<String> allWindowHandles = Driver.getDriver().getWindowHandles();
 
@@ -40,16 +41,3 @@ public class BrowserUtils {
     }
 }
 
-/*
-TC : Create utility method
-1. Create a new class called BrowserUtils
-2. Create a method to make Multiple Windows logic re-usable
-3. When method is called, it should switch window and verify
-title.
-Method info:
-• Name: switchWindowAndVerify
-• Return type: void
-• Arg1: WebDriver
-• Arg2: String expectedInUrl (part of URL that will be checked if the actual URL contains it)
-• Arg3: String expectedTitle (part of the Title that will be checked if the actual title contains it)
- */
