@@ -1,4 +1,4 @@
-@Alexey
+@Alexey @regression
 Feature: Refresh button
   User Story: As a user when I am on VyTrack => Fleet => Vehicles, I should be able to see Export Grid dropdown, Refresh, Reset and Grid Settings Buttons
   Accounts are: Truck Drivers, Store Manager, Sales Manager

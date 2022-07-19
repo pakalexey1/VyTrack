@@ -40,11 +40,17 @@ public class VehiclesPage {
     @FindBy(css = "div[class='column-manager dropdown open']")
     public WebElement gridSettingsDropdown;
 
+    @FindBy(css = "div[class='dropdown-menu']>[class='close']")
+    public WebElement closeSettingsDropdown;
+
     @FindBy(css = "button[data-toggle=\"dropdown\"]")
     public WebElement viewPerPageDropdown;
 
     @FindBy(xpath = "//a[@data-size='50']")
     public WebElement viewPerPage50Option;
+
+    @FindBy(xpath = "//label[.='License Plate']/../following-sibling::td[2]/input")
+    public WebElement licensePlate;
 
     public boolean ifButtonOnTheLeft(String buttonOne, String buttonTwo) {
         boolean check = false;
