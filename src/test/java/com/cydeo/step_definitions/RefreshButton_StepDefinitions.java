@@ -77,7 +77,7 @@ public class RefreshButton_StepDefinitions extends BasePage{
     @Then("user can see Refresh button to the left side of Reset button")
     public void user_can_see_refresh_button_to_the_left_side_of_reset_button() {
 
-        Assert.assertTrue(vehiclesPage.ifButtonOnTheLeft("Refresh", "Reset"));
+        Assert.assertTrue(vehiclesPage.ifButtonOnTheXSide("left","Refresh", "Reset"));
 
         basePage.logout();
     }

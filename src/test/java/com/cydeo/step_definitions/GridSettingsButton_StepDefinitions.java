@@ -4,6 +4,7 @@ import com.cydeo.pages.BasePage;
 import com.cydeo.pages.VehiclesPage;
 import com.cydeo.utilities.VyTrackUtils;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
@@ -93,5 +94,11 @@ public class GridSettingsButton_StepDefinitions extends BasePage{
         VyTrackUtils.login("sales_manager_username3", "password");
 
         VyTrackUtils.goToVehiclesPage();
+    }
+
+
+    @Then("user is able to see Grid Settings on the right side of the Reset button")
+    public void userIsAbleToSeeGridSettingsOnTheRightSideOfTheResetButton() {
+        Assert.assertTrue(vehiclesPage.ifButtonOnTheXSide("right","Reset","Grid Settings"));
     }
 }
