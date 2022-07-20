@@ -16,11 +16,6 @@ public class ExportGridDropdown_StepDefinitions extends BasePage{
     VehiclesPage vehiclesPage = new VehiclesPage();
     BasePage basePage = new BasePage();
 
-    @Given("^user \"([^\"]*)\" \"([^\"]*)\" is on the vehicle page$")
-    public void user_is_on_the_vehicle_page(String arg1, String arg2) {
-        VyTrackUtils.login(arg1, arg2);
-        VyTrackUtils.goToVehiclesPage();
-    }
 
     @When("^user clicks on Export Grid dropdown button$")
     public void user_clicks_on_export_grid_dropdown_button() {
