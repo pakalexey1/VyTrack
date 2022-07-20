@@ -53,45 +53,6 @@ public class RefreshButton_StepDefinitions extends BasePage{
         Assert.assertTrue(vehiclesPage.viewPerPage50Option.isDisplayed());
     }
 
-    @Given("Truck_Driver_second is on the vehicle page")
-    public void truck_driver_second_is_on_the_vehicle_page() {
-
-    }
-
-    @Given("Truck_Driver_third is on the vehicle page")
-    public void truck_driver_third_is_on_the_vehicle_page() {
-
-    }
-
-    @Given("StoreManager_first is on the vehicle page")
-    public void store_manager_first_is_on_the_vehicle_page() {
-
-    }
-
-    @Given("StoreManager_second is on the vehicle page")
-    public void store_manager_second_is_on_the_vehicle_page() {
-
-    }
-
-    @Given("StoreManager_third is on the vehicle page")
-    public void store_manager_third_is_on_the_vehicle_page() {
-
-    }
-
-    @Given("SalesManager_first is on the vehicle page")
-    public void sales_manager_first_is_on_the_vehicle_page() {
-
-    }
-
-    @Given("SalesManager_second is on the vehicle page")
-    public void sales_manager_second_is_on_the_vehicle_page() {
-
-    }
-
-    @Given("SalesManager_third is on the vehicle page")
-    public void sales_manager_third_is_on_the_vehicle_page() {
-
-    }
 
     /**
      * Sasha's stuff below:
