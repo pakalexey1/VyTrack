@@ -40,16 +40,17 @@ public class RefreshButton_StepDefinitions extends BasePage{
 
     @Then("View Per Page dropdown options disappear")
     public void viewPerPageDropdownDisappears() throws InterruptedException {
-
+        VyTrackUtils.waitFor(20);
         Assert.assertFalse(vehiclesPage.viewPerPage50Option.isDisplayed());
 
     }
 
     @When("user clicks on View Per Page Dropdown button")
     public void userClicksOnViewPerPageDropdownButton() throws InterruptedException {
-
+        VyTrackUtils.waitFor(20);
         getWait10().until(ExpectedConditions.elementToBeClickable(vehiclesPage.viewPerPageDropdown));
         vehiclesPage.viewPerPageDropdown.click();
+        VyTrackUtils.waitFor(20);
         Assert.assertTrue(vehiclesPage.viewPerPage50Option.isDisplayed());
     }
 
@@ -57,7 +58,9 @@ public class RefreshButton_StepDefinitions extends BasePage{
     /**
      * Sasha's stuff below:
      **/
+
     @Given("user {string} enters {string} on the vehicle page")
+
     public void isOnTheVehiclePage(String username, String password) {
         VyTrackUtils.login(username, password);
         VyTrackUtils.goToVehiclesPage();

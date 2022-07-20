@@ -5,7 +5,7 @@ Feature: Export Grid dropdown
 
   @TruckDriver_1
   Scenario Outline: Truck driver can click on Export Grid dropdown
-    Given user "<truck_driver_username>" "<password>" is on the vehicle page
+    Given user "<truck_driver_username>" enters "<password>" is on the vehicle page
     When user clicks on Export Grid dropdown button
     Then user should see two options: CSV and XLSX
     Examples:
@@ -16,7 +16,7 @@ Feature: Export Grid dropdown
 
   @StoreManager_1
   Scenario Outline: Store Manager can click on Export Grid dropdown
-    Given user "<store_manager_username>" "<password>" is on the vehicle page
+    Given user "<store_manager_username>" enters "<password>" is on the vehicle page
     When user clicks on Export Grid dropdown button
     Then user should see two options: CSV and XLSX
     Examples:
@@ -27,7 +27,7 @@ Feature: Export Grid dropdown
 
   @SalesManager_1
   Scenario Outline: Sales Manager can click on Export Grid dropdown
-    Given user "<sales_manager_username>" "<password>" is on the vehicle page
+    Given user "<sales_manager_username>" enters "<password>" is on the vehicle page
     When user clicks on Export Grid dropdown button
     Then user should see two options: CSV and XLSX
     Examples:
