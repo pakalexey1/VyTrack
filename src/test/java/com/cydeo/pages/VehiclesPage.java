@@ -46,7 +46,7 @@ public class VehiclesPage {
     @FindBy(css = "button[data-toggle=\"dropdown\"]")
     public WebElement viewPerPageDropdown;
 
-    @FindBy(xpath = "//a[@data-size='50']")
+    @FindBy(xpath = "//div[@class='btn-group']//a[contains(text(),\"50\")]")
     public WebElement viewPerPage50Option;
 
     @FindBy(xpath = "//label[.='License Plate']/../following-sibling::td[2]/input")

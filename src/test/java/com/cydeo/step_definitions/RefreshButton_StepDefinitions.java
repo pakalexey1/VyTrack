@@ -40,66 +40,29 @@ public class RefreshButton_StepDefinitions extends BasePage{
 
     @Then("View Per Page dropdown options disappear")
     public void viewPerPageDropdownDisappears() throws InterruptedException {
-
+        VyTrackUtils.waitFor(20);
         Assert.assertFalse(vehiclesPage.viewPerPage50Option.isDisplayed());
 
     }
 
     @When("user clicks on View Per Page Dropdown button")
     public void userClicksOnViewPerPageDropdownButton() throws InterruptedException {
-
+        VyTrackUtils.waitFor(20);
         getWait10().until(ExpectedConditions.elementToBeClickable(vehiclesPage.viewPerPageDropdown));
         vehiclesPage.viewPerPageDropdown.click();
+        VyTrackUtils.waitFor(20);
         Assert.assertTrue(vehiclesPage.viewPerPage50Option.isDisplayed());
     }
 
-    @Given("Truck_Driver_second is on the vehicle page")
-    public void truck_driver_second_is_on_the_vehicle_page() {
-
-    }
-
-    @Given("Truck_Driver_third is on the vehicle page")
-    public void truck_driver_third_is_on_the_vehicle_page() {
-
-    }
-
-    @Given("StoreManager_first is on the vehicle page")
-    public void store_manager_first_is_on_the_vehicle_page() {
-
-    }
-
-    @Given("StoreManager_second is on the vehicle page")
-    public void store_manager_second_is_on_the_vehicle_page() {
-
-    }
-
-    @Given("StoreManager_third is on the vehicle page")
-    public void store_manager_third_is_on_the_vehicle_page() {
-
-    }
-
-    @Given("SalesManager_first is on the vehicle page")
-    public void sales_manager_first_is_on_the_vehicle_page() {
-
-    }
-
-    @Given("SalesManager_second is on the vehicle page")
-    public void sales_manager_second_is_on_the_vehicle_page() {
-
-    }
-
-    @Given("SalesManager_third is on the vehicle page")
-    public void sales_manager_third_is_on_the_vehicle_page() {
-
-    }
 
     /**
      * Sasha's stuff below:
      **/
-    @Given("user {string} enters {string} on the vehicle page")
-    public void isOnTheVehiclePage(String username, String password) throws InterruptedException {
+    @Given("user {string} enters {string} is on the vehicle page")
+    public void isOnTheVehiclePage(String username, String password) {
         VyTrackUtils.login(username, password);
         VyTrackUtils.goToVehiclesPage();
+        VyTrackUtils.waitFor(20);
     }
 
     @When("user moves to Refresh button")
