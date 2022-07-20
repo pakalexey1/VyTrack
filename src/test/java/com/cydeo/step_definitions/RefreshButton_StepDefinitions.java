@@ -58,7 +58,7 @@ public class RefreshButton_StepDefinitions extends BasePage{
      * Sasha's stuff below:
      **/
     @Given("user {string} enters {string} on the vehicle page")
-    public void isOnTheVehiclePage(String username, String password) throws InterruptedException {
+    public void isOnTheVehiclePage(String username, String password) {
         VyTrackUtils.login(username, password);
         VyTrackUtils.goToVehiclesPage();
     }
