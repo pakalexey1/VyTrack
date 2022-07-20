@@ -56,3 +56,32 @@ Feature: click Grid Setting Button
     Given SalesManager_GridBtn_third is on the vehicle page
     And user can see Grid Settings button and click
 
+  @AlexeyGridSettingsBtn
+  Scenario Outline: Grid Settings should be on the right side of the Reset button
+    Given user "<truck_driver_username>" enters "<password>" on the vehicle page
+    Then user is able to see Grid Settings on the right side of the Reset button
+    Examples:
+      | truck_driver_username  | password |
+      | truck_driver_username1 | password |
+      | truck_driver_username2 | password |
+      | truck_driver_username3 | password |
+
+  @AlexeyGridSettingsBtn
+  Scenario Outline: Grid Settings should be on the right side of the Reset button
+    Given user "<sales_manager_username>" enters "<password>" on the vehicle page
+    Then user is able to see Grid Settings on the right side of the Reset button
+    Examples:
+      | sales_manager_username  | password |
+      | sales_manager_username1 | password |
+      | sales_manager_username2 | password |
+      | sales_manager_username3 | password |
+
+  @AlexeyGridSettingsBtn
+  Scenario Outline: Grid Settings should be on the right side of the Reset button
+    Given user "<store_manager_username>" enters "<password>" on the vehicle page
+    Then user is able to see Grid Settings on the right side of the Reset button
+    Examples:
+      | store_manager_username  | password |
+      | store_manager_username1 | password |
+      | store_manager_username2 | password |
+      | store_manager_username3 | password |

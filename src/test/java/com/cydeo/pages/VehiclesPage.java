@@ -52,12 +52,20 @@ public class VehiclesPage {
     @FindBy(xpath = "//label[.='License Plate']/../following-sibling::td[2]/input")
     public WebElement licensePlate;
 
-    public boolean ifButtonOnTheLeft(String buttonOne, String buttonTwo) {
+    public boolean ifButtonOnTheXSide(String side, String buttonOne, String buttonTwo) {
         boolean check = false;
-        String xpath = "//a[@title='" + buttonOne + "']/..//preceding-sibling::a[@title='" + buttonTwo + "']";
-        WebElement element = Driver.getDriver().findElement(By.xpath(xpath));
-        if (element.isDisplayed()) {
-            check = true;
+        if (side.equals("left")) {
+            String xpath = "//a[@title='" + buttonOne + "']/..//preceding-sibling::a[@title='" + buttonTwo + "']";
+            WebElement element = Driver.getDriver().findElement(By.xpath(xpath));
+            if (element.isDisplayed()) {
+                check = true;
+            }
+        }else if (side.equals("right")){
+            String xpath = "//a[@title='" + buttonOne + "']/..//following-sibling::a[@title='" + buttonTwo + "']";
+            WebElement element = Driver.getDriver().findElement(By.xpath(xpath));
+            if (element.isDisplayed()) {
+                check = true;
+            }
         }
         return check;
     }
