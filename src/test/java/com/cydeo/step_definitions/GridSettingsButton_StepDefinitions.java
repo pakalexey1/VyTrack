@@ -101,4 +101,6 @@ public class GridSettingsButton_StepDefinitions extends BasePage{
     public void userIsAbleToSeeGridSettingsOnTheRightSideOfTheResetButton() {
         Assert.assertTrue(vehiclesPage.ifButtonOnTheXSide("right","Reset","Grid Settings"));
     }
+
+
 }
