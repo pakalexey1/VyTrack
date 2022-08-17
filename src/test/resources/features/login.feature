@@ -30,7 +30,7 @@ Accounts are: truck_driver, store_manager, sales_manager
       | store_manager_username2 | password |
       | store_manager_username3 | password |
 
-  @SalesManager
+  @SalesManager @practice
   Scenario Outline: As a SalesManager I should be able to login with correct credentials
 
     Given user is on the VyTrack login page
@@ -42,7 +42,19 @@ Accounts are: truck_driver, store_manager, sales_manager
       | sales_manager_username2 | password |
       | sales_manager_username3 | password |
 
-
+@practice
+  Scenario: Menu Options for salesmanager
+    Given user is on the VyTrack login page
+    When user enters the sales manager information
+    Then user should be able to see following modules
+      | Dashboards         |
+      | Fleet              |
+      | Customers          |
+      | Sales              |
+      | Activities         |
+      | Marketing          |
+      | Reports & Segments |
+      | System             |
 
 
 

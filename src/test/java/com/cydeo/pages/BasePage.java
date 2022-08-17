@@ -6,6 +6,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import java.util.List;
+
 public class BasePage extends BaseModel{
 
     public BasePage() {
@@ -24,6 +26,9 @@ public class BasePage extends BaseModel{
 
     @FindBy(css = "div[class='loader-mask shown']")
     public WebElement loaderMask;
+
+    @FindBy(xpath = "//span[@class='title title-level-1']")
+    public List<WebElement> salesManagerModules;
 
     public void logout() {
 
