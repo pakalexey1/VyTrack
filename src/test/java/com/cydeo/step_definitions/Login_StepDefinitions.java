@@ -45,9 +45,9 @@ public class Login_StepDefinitions extends BasePage{
     }
 
     @Then("user should be able to see following modules")
-    public void userShouldBeAbleToSeeFollowingModules(List<String> expectedModules) {
+    public void userShouldBeAbleToSeeFollowingModules(List<String> expectedModules) throws InterruptedException {
         List<String> actualModules = new ArrayList<>();
-
+        Thread.sleep(3000);
         for (int i = 0; i < basePage.salesManagerModules.size(); i++) {
             actualModules.add(basePage.salesManagerModules.get(i).getText());
         }
