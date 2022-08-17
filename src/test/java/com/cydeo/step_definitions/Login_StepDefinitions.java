@@ -33,8 +33,8 @@ public class Login_StepDefinitions extends BasePage{
 
     @Then("user should see dashboard")
     public void user_should_see_dashboard() {
-        getWait10().until(ExpectedConditions.titleContains(ConfigurationReader.getProperty("dashboard")));
-        Assert.assertEquals("Dashboard verification failed", ConfigurationReader.getProperty("dashboard"), Driver.getDriver().getTitle() );
+        getWait10().until(ExpectedConditions.titleContains("Dashboard"));
+        Assert.assertEquals("Dashboard verification failed", "Dashboard", Driver.getDriver().getTitle());
         basePage.logout();
     }
 
